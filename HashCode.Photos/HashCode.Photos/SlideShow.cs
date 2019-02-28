@@ -21,8 +21,10 @@ namespace HashCode.Photos
 
         private void Recursive(IEnumerable<Slide> solution, int currentScore, List<Slide> availableSlides)
         {
+            
             for (var i = 0; i < availableSlides.Count; ++i)
             {
+                Console.WriteLine("Current length: " + _solutionLength + " best: " + _bestScore);
                 var slide = availableSlides[i];
                 var newSolution = solution.Append(slide);
 

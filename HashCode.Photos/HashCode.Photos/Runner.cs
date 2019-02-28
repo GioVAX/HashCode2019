@@ -21,8 +21,10 @@ namespace HashCode.Photos
                 });
             }
 
+            var solutionSlides = new SlideShow().Compose(slides);
+
             var slideWriter = new SlideWriter();
-            var outputLines = slideWriter.Format(slides);
+            var outputLines = slideWriter.Format(solutionSlides);
 
             File.WriteAllLines(outputFilePath, outputLines);
         }        

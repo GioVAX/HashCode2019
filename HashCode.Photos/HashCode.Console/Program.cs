@@ -9,7 +9,9 @@ namespace HashCode.Console
         {
             System.Console.WriteLine("Hello World!");
 
-            var photos = new PhotoReader().Read("a_example.txt");
+            var runner = new Runner();
+
+            runner.Run("input/b_lovely_landscapes.txt", "../../../output/b_lovely_landscapes.out");
         }
     }
 }
