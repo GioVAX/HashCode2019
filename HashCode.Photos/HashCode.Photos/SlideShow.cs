@@ -1,21 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HashCode.Photos
 {
     public class SlideShow
     {
+        private Slide[] _bestSolution = null;
+        private int _solutionLength = 0;
+        private int _bestScore = -1;
+
         public IEnumerable<Slide> Compose(List<Slide> slides)
         {
-            //throw new NotImplementedException();
+            _bestSolution = new Slide[slides.Count];
 
-            return Recursive( new )
+            Recursive(new List<Slide>(), 0, slides);
 
+            return _bestSolution;
+        }
 
-            //for (int i = 0; i < UPPER; i++)
-            //{
-                
-            //}
+        private void Recursive(IEnumerable<Slide> solution, int currentScore, List<Slide> availableSlides)
+        {
+            for (var i = 0; i < availableSlides.Count; ++i)
+            {
+                var slide = availableSlides[i];
+                var newSolution = solution.Append(slide);
+
+                var currentTransitionScore = solution.Any() ? TagScorer.Score(new HashSet<string>(solution.Last().Tags),
+                    new HashSet<string>(slide.Tags)) : 0;
+
+                CheckBestSolution(newSolution, currentTransitionScore + currentScore);
+
+                Recursive(newSolution, currentTransitionScore + currentScore, availableSlides.Where(sl => sl != slide).ToList());
+            }
+        }
+
+        private void CheckBestSolution(IEnumerable<Slide> solution, int score)
+        {
+            if (score <= _bestScore)
+                return;
+
+            solution.ToList().CopyTo(_bestSolution);
+            _solutionLength = solution.Count();
+            _bestScore = score;
+        }
+
+        private int ComputeScore(List<Slide> solution)
+        {
+            var score = 0;
+            for (var i = 0; i < solution.Count - 1; ++i)
+                score += TagScorer.Score(new HashSet<string>(solution[i].Tags), new HashSet<string>(solution[i + 1].Tags));
+            return score;
         }
     }
 }
