@@ -1,4 +1,5 @@
 ﻿using System;
+using HashCode.Photos;
 
 namespace HashCode.Console
 {
@@ -7,6 +8,8 @@ namespace HashCode.Console
         static void Main(string[] args)
         {
             System.Console.WriteLine("Hello World!");
+
+            var photos = new PhotoReader().Read("a_example.txt");
         }
     }
 }

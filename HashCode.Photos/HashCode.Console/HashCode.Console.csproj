@@ -5,4 +5,14 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HashCode.Photos\HashCode.Photos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="a_example.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
