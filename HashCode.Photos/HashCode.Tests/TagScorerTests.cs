@@ -24,6 +24,7 @@ namespace HashCode.Tests
                 new object[] { new HashSet<string> {"a","c", "d", "b"}, new HashSet<string> {"a","b"}, 0 },
                 new object[] { new HashSet<string> {"a","c", "d", "b"}, new HashSet<string> {"a","b", "e"}, 1 },
                 new object[] { new HashSet<string> {"a","c", "d", "b"}, new HashSet<string> {"a","b", "e", "f"}, 2 },
+                new object[] { new HashSet<string> {"b","c"}, new HashSet<string> {"c","b", "e", "f"}, 0 },
             };
     }
 }
