@@ -6,14 +6,14 @@ using Xunit;
 
 namespace HashCode.Tests.Sets
 {
-    public class AExampleTests
+    public class ATests
     {
         [Fact]
-        public void Run_AExample()
+        public void RunA()
         {
             var runner = new Runner();
 
-            runner.Run("a_example.txt", "../../../a_example.out");
+            runner.Run("input/a_example.txt", "../../../output/a_example.out");
         }
     }
 }

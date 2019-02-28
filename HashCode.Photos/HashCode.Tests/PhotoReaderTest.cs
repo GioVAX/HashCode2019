@@ -13,7 +13,7 @@ namespace HashCode.Tests
         {
             var reader = new PhotoReader();
 
-            var photos = reader.Read("a_example.txt");
+            var photos = reader.Read("input/a_example.txt");
 
             Assert.Equal(4, photos.Count);
 
