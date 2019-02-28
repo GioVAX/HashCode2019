@@ -10,28 +10,11 @@ namespace HashCode.Photos
     {
         public void Run()
         {
-            var input = File.ReadAllLines("a_example.txt");
-
-            var headers = input[0];
-
-            var photos = ParsePhotos(input.Skip(1));
+            var photos = new PhotoReader().Read("a_example.txt");
+            
 
         }
 
-        private IEnumerable<Photo> ParsePhotos(IEnumerable<string> rows)
-        {
-            var id = -1;
-            foreach (var photo in rows)
-            {
-                var columns = photo.Split(" ");
-                var tags = columns[2].Split(" ").ToList();
-                yield return new Photo
-                {
-                    Id = id++,
-                    //Orientation = columns[1],
-                    Tags = tags
-                };
-            }
-        }
+        
     }
 }

@@ -12,4 +12,10 @@
     <None Include="Slide.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="a_example.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
