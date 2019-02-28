@@ -28,7 +28,7 @@ namespace HashCode.Photos
                 yield return new Photo
                 {
                     Id = id++,
-                    Orientation = columns[1],
+                    //Orientation = columns[1],
                     Tags = tags
                 };
             }

@@ -8,7 +8,13 @@ namespace HashCode.Photos
     {
         public int Id;
         public List<string> Tags = new List<string>();
-        public string Orientation;
+        public Orientation Orientation;
 
+    }
+
+    public enum Orientation
+    {
+        Vertical,
+        Horizontal
     }
 }
