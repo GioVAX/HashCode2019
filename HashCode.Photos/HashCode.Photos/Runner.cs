@@ -8,13 +8,23 @@ namespace HashCode.Photos
 {
     public class Runner
     {
-        public void Run()
+        public void Run(string inputFilePath, string outputFilePath)
         {
-            var photos = new PhotoReader().Read("a_example.txt");
-            
+            var photos = new PhotoReader().Read(inputFilePath);
 
-        }
+            var slides = new List<Slide>();
+            foreach (var photo in photos)
+            {
+                slides.Add(new Slide
+                {
+                    Photos = new List<Photo> { photo }
+                });
+            }
 
-        
+            var slideWriter = new SlideWriter();
+            var outputLines = slideWriter.Format(slides);
+
+            File.WriteAllLines(outputFilePath, outputLines);
+        }        
     }
 }
