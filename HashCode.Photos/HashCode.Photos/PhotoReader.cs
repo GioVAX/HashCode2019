@@ -12,7 +12,7 @@ namespace HashCode.Photos
         {
             var input = File.ReadAllLines(filePath);
 
-            var totalRows = Int16.Parse(input[0]);
+            var totalRows = Int32.Parse(input[0]);
 
             var photos = ParsePhotos(input.Skip(1));
 
