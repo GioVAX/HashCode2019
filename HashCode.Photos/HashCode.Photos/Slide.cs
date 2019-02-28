@@ -6,5 +6,6 @@ namespace HashCode.Photos
 {
     public class Slide
     {
+        public List<Photo> Photos;
     }
 }
