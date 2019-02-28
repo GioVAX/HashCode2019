@@ -1,0 +1,30 @@
+﻿using System.Collections.Generic;
+using HashCode.Photos;
+using Xunit;
+
+namespace HashCode.Tests
+{
+    public class SlideShow_Tests
+    {
+        [Fact]
+        public void ComposingTheExampleSlideshow_ShouldReturnTheExpectedResult()
+        {
+            var photo0 = new Photo { Id = 0, Orientation = Orientation.Horizontal, Tags = { "cat", "beach", "sun" } };
+            var photo1 = new Photo { Id = 1, Orientation = Orientation.Vertical, Tags = { "selfie", "smile" } };
+            var photo2 = new Photo { Id = 2, Orientation = Orientation.Vertical, Tags = { "garden", "selfie" } };
+            var photo3 = new Photo { Id = 3, Orientation = Orientation.Horizontal, Tags = { "cat", "garden" } };
+
+            var slides = new List<Slide>
+            {
+                new Slide {Photos = new List<Photo> {photo0}},
+                new Slide {Photos = new List<Photo> {photo1, photo2}},
+                new Slide {Photos = new List<Photo> {photo3}},
+            };
+
+            var slideShow = new SlideShow();
+            slideShow.Compose(slides);
+
+
+        }
+    }
+}
