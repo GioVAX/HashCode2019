@@ -12,4 +12,14 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HashCode.Photos\HashCode.Photos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="a_example.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
