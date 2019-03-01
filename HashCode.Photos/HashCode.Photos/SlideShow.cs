@@ -25,11 +25,16 @@ namespace HashCode.Photos
             for (var i = 0; i < availableSlides.Count; ++i)
             {
                 Console.WriteLine("Current length: " + _solutionLength + " best: " + _bestScore);
-                var slide = availableSlides[i];
-                var newSolution = solution.Append(slide);
 
+                var slide = availableSlides[i];
                 var currentTransitionScore = solution.Any() ? TagScorer.Score(new HashSet<string>(solution.Last().Tags),
                     new HashSet<string>(slide.Tags)) : 0;
+
+                if (_solutionLength != 0 && currentTransitionScore == 0)
+                    continue;
+
+                var newSolution = solution.Append(slide);
+
 
                 CheckBestSolution(newSolution, currentTransitionScore + currentScore);
 
