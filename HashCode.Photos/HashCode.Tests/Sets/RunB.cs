@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using HashCode.Photos;
+using HashCode.Photos.Runners;
 using Xunit;
 
 namespace HashCode.Tests.Sets
@@ -11,9 +12,9 @@ namespace HashCode.Tests.Sets
         [Fact]
         public void RunB()
         {
-            var runner = new Runner();
+            var runner = new DefaultRunner("input/b_lovely_landscapes.txt", "../../../output/b_lovely_landscapes.out");
 
-            runner.Run("input/b_lovely_landscapes.txt", "../../../output/b_lovely_landscapes.out");
+            runner.Run();
         }
     }
 }

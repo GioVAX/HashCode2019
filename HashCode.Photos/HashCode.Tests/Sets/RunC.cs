@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using HashCode.Photos;
+using HashCode.Photos.Runners;
 using Xunit;
 
 namespace HashCode.Tests.Sets
@@ -11,9 +12,9 @@ namespace HashCode.Tests.Sets
         [Fact]
         public void RunC()
         {
-            var runner = new Runner();
+            var runner = new DefaultRunner("input/c_memorable_moments.txt", "../../../output/c_memorable_moments.out");
 
-            runner.Run("input/c_memorable_moments.txt", "../../../output/c_memorable_moments.out");
+            runner.Run();
         }
     }
 }

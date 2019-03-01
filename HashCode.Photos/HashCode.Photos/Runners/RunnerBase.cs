@@ -6,7 +6,7 @@ using System.Text;
 namespace HashCode.Photos.Runners
 {
 
-    public class RunnerBase
+    public abstract class RunnerBase
     {
         private readonly string _inputFilePath;
         private readonly string _outputFilePath;
@@ -20,6 +20,8 @@ namespace HashCode.Photos.Runners
 
             this.Photos = new PhotoReader().Read(_inputFilePath);
         }
+
+        public abstract void Run();
 
         public void Save(IEnumerable<Slide> slides)
         {
