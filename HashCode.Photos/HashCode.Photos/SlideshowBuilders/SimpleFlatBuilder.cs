@@ -20,10 +20,22 @@ namespace HashCode.Photos.Runners
                     .Select(photo => new Slide{Photos = new List<Photo>{photo}}));
 
             //Add pairs of vertical photos to a slide randomly
+            var verticalPhotos = photos.Where(photo => photo.Orientation == Orientation.Vertical).ToList();
+            for (var i = 0; i < verticalPhotos.Count(); i++)
+            {
+                var slide = new Slide {Photos = new List<Photo>{ verticalPhotos.ElementAt(i)}};
+                if (verticalPhotos.ElementAtOrDefault(i + 1) != null)
+                    slide.Photos.Add(verticalPhotos.ElementAt(i + 1));
+                slides.Add(slide);
+                i++;
+            }
+            
+            /*
             var verticalPhotos = photos.Where(photo => photo.Orientation == Orientation.Vertical);
-            slides.AddRange(verticalPhotos.Skip(1).Zip(verticalPhotos, (second, first) => new[] {first, second})
+            slides.AddRange(verticalPhotos.Skip(2).Zip(verticalPhotos, (second, first) => new[] {first, second})
                 .Select(pair =>
                     new Slide {Photos = new List<Photo> {pair[0], pair[1]}}));
+            */
 
             return slides;
         }
